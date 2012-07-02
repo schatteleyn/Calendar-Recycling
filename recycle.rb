@@ -13,16 +13,24 @@ def same(year1, year2)
   end
 end
 
+def equivalent(year, y = true)
+  if y == true  # Give the equivalence for the year entered
+  	tyear = year
+  else # Give the equivalence for 10 years from the one entered.
+  	tyear = year+10
+  end
+
+  (year..tyear).each do |c|
+    print "#{c}: "
+    ((p=1900)..c-1).each do |p|
+      if same(c,p)
+        print "#{p} "
+      end
+    end
+  puts ""
+  end
+end
+
 puts "Choose a year: "
 year = gets.chomp.to_i
-
-# Give the equivalence for 10 years from the one entered.
-(year..year+10).each do |c|
-  print "#{c}: "
-  ((p=1900)..c-1).each do |p|
-    if same(c,p)
-    	print "#{p} "
-    end
-  end
-  puts ""
-end
+equivalent(year)

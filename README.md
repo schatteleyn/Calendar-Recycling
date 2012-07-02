@@ -7,5 +7,5 @@ It's based on [this](http://garyc.me/calendars/)
 ## TO-DO ##
 
 + Add security
-+ Give equivalent years for only one year
+<del>+ Give equivalent years for only one year</del>
 + Give equivalent for a user-inputed period of time
