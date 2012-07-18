@@ -31,6 +31,38 @@ def equivalent(year, y = true)
   end
 end
 
-puts "Choose a year: "
-year = gets.chomp.to_i
-equivalent(year)
+def equivalent_range(byear, pyear)
+  (byear..pyear).each do |c, d|
+    print "#{c}: "
+    ((p=1900)..c-1).each do |p|
+      if same(c,p)
+        print "#{p} "
+      end
+    end
+  puts ""
+  end
+end
+
+puts '1 - Equivalent year for a year.'
+puts '2 - Equivalents year for 10 years'
+puts '3 - Equivalent years for a range of year'
+l = gets.chomp.to_i
+
+if l == 1
+  puts "Choose a year: "
+  year = gets.chomp.to_i
+  equivalent(year) 
+elsif l == 2
+  y = false
+  puts "Choose a year: "
+  year = gets.chomp.to_i
+  equivalent(year, y)
+elsif l == 3
+  puts "Choose a beginning year: "
+  byear = gets.chomp.to_i
+  puts "Choose an ending year: "
+  pyear = gets.chomp.to_i
+  equivalent_range(byear, pyear)
+else
+  puts 'You entered a wrong parameter.'
+end
