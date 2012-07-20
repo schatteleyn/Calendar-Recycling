@@ -34,7 +34,7 @@ end
 def equivalent_range(byear, pyear)
   (byear..pyear).each do |c, d|
     print "#{c}: "
-    ((p=1900)..c-1).each do |p|
+    ((byear-100)..c-1).each do |p|
       if same(c,p)
         print "#{p} "
       end
