@@ -13,28 +13,20 @@ def same(year1, year2)
   end
 end
 
-def equivalent(year, y = true)
-  if y == true  # Give the equivalence for the year entered
-  	tyear = year
-  else # Give the equivalence for 10 years from the one entered.
-  	tyear = year+10
-  end
-
-  (year..tyear).each do |c|
-    print "#{c}: "
-    ((p=1900)..c-1).each do |p|
-      if same(c,p)
-        print "#{p} "
-      end
+def equivalent(byear, y = true, pyear = nil)
+  if pyear == nil
+    if y == true  # Give the equivalence for the year entered
+      tyear = byear
+    else # Give the equivalence for 10 years from the one entered.
+      tyear = byear+10
     end
-  puts ""
+  else
+     tyear = pyear 
   end
-end
-
-def equivalent_range(byear, pyear)
-  (byear..pyear).each do |c, d|
+  
+  (byear..tyear).each do |c|
     print "#{c}: "
-    ((byear-100)..c-1).each do |p|
+    ((byear-150)..c-1).each do |p|
       if same(c,p)
         print "#{p} "
       end
@@ -62,7 +54,7 @@ elsif l == 3
   byear = gets.chomp.to_i
   puts "Choose an ending year: "
   pyear = gets.chomp.to_i
-  equivalent_range(byear, pyear)
+  equivalent(byear, pyear)
 else
   puts 'You entered a wrong parameter.'
 end
